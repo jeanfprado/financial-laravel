@@ -8,20 +8,14 @@
                 <div class="card-header">Nova Categoria</div>
 
                 <div class="card-body">
-                <form method="POST" action="{{ route('categories.store') }}" >
-                    @csrf
-                    <label>Titulo:</label>
-                    <input name="title" />
 
-                    <label>Tipo:</label>
-                    <select name="type" >
-                        <option value="1" >Entrada</option>
-                        <option value="2" >Saída</option>
-                    </select>
+                {!! Form::open(['url' => route('categories.store') ]) !!}
 
-                    <button type="submit" >Salvar</button>
+                @include('app.categories._form')
 
-                </form>
+                {!! Form::submit('Salvar', ['class' => 'btn btn-success']) !!}
+
+                {!! Form::close() !!}
                 </div>
             </div>
         </div>

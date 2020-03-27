@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->integer('type')->comment('1 Entrada 2 Saída');
-            $table->integer('parent_id')->default(0);
+            $table->integer('parent_id')->nullable();
             $table->unsignedBigInteger('user_id');
 
             $table->foreign('user_id')->references('id')->on('users');

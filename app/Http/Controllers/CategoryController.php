@@ -15,14 +15,17 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::where('parent_id', null)->get();
 
         return view('app.categories.index', compact('categories'));
     }
 
     public function create()
     {
-        return view('app.categories.create');
+        $parents = Category::where('parent_id', null)->pluck('title', 'id');
+
+
+        return view('app.categories.create', compact('parents'));
     }
 
     public function store(Request $request)
@@ -36,7 +39,8 @@ class CategoryController extends Controller
 
     public function edit(Category $category)
     {
-        return view('app.categories.edit', compact('category'));
+        $parents = Category::where('parent_id', null)->pluck('title', 'id');
+        return view('app.categories.edit', compact('category', 'parents'));
     }
 
     public function update(Request $request, Category $category)

@@ -8,21 +8,13 @@
             <div class="card-header">Editar Categoria </div>
 
                 <div class="card-body">
-                <form method="POST" action="{{ route('categories.update', ['category' => $category->id]) }}" >
-                    @method('PUT')
-                    @csrf
-                    <label>Titulo:</label>
-                    <input name="title" value='{{$category->title}}' />
+                {!! Form::model($category, ['url' => route('categories.update', ['category' => $category->id]), 'method' =>'put']) !!}
 
-                    <label>Tipo:</label>
-                    <select name="type" >
-                        <option value="1" @if($category->type == 1 ) selected @endif >Entrada</option>
-                        <option value="2" @if($category->type == 2 ) selected @endif >Saída</option>
-                    </select>
+                @include('app.categories._form')
 
-                    <button type="submit" >Atualizar</button>
+                {!! Form::submit('Atualizar', ['class' =>'btn btn-primary']) !!}
 
-                </form>
+                {!! Form::close() !!}
                 </div>
             </div>
         </div>

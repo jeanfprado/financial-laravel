@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">
                     Categorias
-                <a class="btn btn-primary" href="{{route('categories.create')}}" > Nova Categoria</a>
+                <a class="btn btn-primary btn-sm" href="{{route('categories.create')}}" > Nova Categoria</a>
                 </div>
 
                 <div class="card-body">
@@ -21,19 +21,32 @@
                         </thead>
                         <tbody>
                            @foreach($categories as $category)
-
                             <tr>
-                                <td>
+                                <th>
+                                    <a class="btn btn-primary btn-sm" href="{{route('categories.edit', ['category' => $category->id])}}" >Editar</a>
                                     <form action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="post">
-                                        <input class="btn btn-default" type="submit" value="Delete" />
+                                        <input class="btn btn-default btn-sm" type="submit" value="Delete" />
                                         @method('delete')
                                         @csrf
                                     </form>
-                                    <a class="btn btn-primary" href="{{route('categories.edit', ['category' => $category->id])}}" >Editar</a>
-                                </td>
-                                <td>{{$category->id}} </td>
-                                <td>{{$category->title}}</td>
+                                </th>
+                                <th>{{$category->id}} </th>
+                                <th>{{$category->title}}</th>
                             </tr>
+                                @foreach ($category->children as $children )
+                                    <tr>
+                                        <td>
+                                            <a class="btn btn-primary btn-sm" href="{{route('categories.edit', ['category' => $children->id])}}" >Editar</a>
+                                            <form action="{{ route('categories.destroy', ['category' => $children->id]) }}" method="post">
+                                                <input class="btn btn-default btn-sm" type="submit" value="Delete" />
+                                                @method('delete')
+                                                @csrf
+                                            </form>
+                                        </td>
+                                        <td>{{$children->id}} </td>
+                                        <td>{{$children->title}}</td>
+                                    </tr>
+                                @endforeach
                             @endforeach
                         </tbody>
                     </table>
