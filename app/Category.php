@@ -2,10 +2,12 @@
 
 namespace App;
 
+use App\Eloquent\Concerns\BelongsToUser;
 use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    use BelongsToUser;
     /**
      * The attributes that are mass assignable.
      *
