@@ -27,10 +27,14 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Financial') }}
                 </a>
-
+                @auth
                 <a class="navbar" href="{{{ route('categories.index') }}}">
                     Categorias
                 </a>
+                <a class="navbar" href="{{{ route('accounts.index') }}}">
+                    Contas
+                </a>
+                @endauth
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -81,5 +85,7 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    @yield('js')
 </body>
 </html>

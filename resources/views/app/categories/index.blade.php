@@ -14,7 +14,7 @@
                     <table class="table" >
                         <thead>
                             <tr>
-                                <th>Ações</th>
+                                <th style="width: 145px" >Ações</th>
                                 <th>Id</th>
                                 <th>Titulo</th>
                             </tr>
@@ -24,11 +24,12 @@
                             <tr>
                                 <th>
                                     <a class="btn btn-primary btn-sm" href="{{route('categories.edit', ['category' => $category->id])}}" >Editar</a>
-                                    <form action="{{ route('categories.destroy', ['category' => $category->id]) }}" method="post">
-                                        <input class="btn btn-default btn-sm" type="submit" value="Delete" />
-                                        @method('delete')
-                                        @csrf
-                                    </form>
+                                    <a class="btn btn-danger btn-sm" href="" onclick="event.preventDefault();
+                                            document.getElementById('destroy-form').submit();">Excluir</a>
+                                            <form id="destroy-form" action="{{ route('categories.destroy', ['category' => $category->id]) }}" style="display: none;" method="post">
+                                                @method('delete')
+                                                @csrf
+                                            </form>
                                 </th>
                                 <th>{{$category->id}} </th>
                                 <th>{{$category->title}}</th>
@@ -37,8 +38,9 @@
                                     <tr>
                                         <td>
                                             <a class="btn btn-primary btn-sm" href="{{route('categories.edit', ['category' => $children->id])}}" >Editar</a>
-                                            <form action="{{ route('categories.destroy', ['category' => $children->id]) }}" method="post">
-                                                <input class="btn btn-default btn-sm" type="submit" value="Delete" />
+                                            <a class="btn btn-danger btn-sm" href="" onclick="event.preventDefault();
+                                            document.getElementById('destroy-form').submit();">Excluir</a>
+                                            <form id="destroy-form" action="{{ route('categories.destroy', ['category' => $children->id]) }}" style="display: none;" method="post">
                                                 @method('delete')
                                                 @csrf
                                             </form>

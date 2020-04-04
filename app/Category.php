@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use BelongsToUser;
+
+    const TYPE_RECEIVE = 'receive';
+    const TYPE_EXPENSE = 'expense';
     /**
      * The attributes that are mass assignable.
      *
