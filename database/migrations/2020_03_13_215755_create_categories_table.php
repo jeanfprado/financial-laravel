@@ -16,7 +16,7 @@ class CreateCategoriesTable extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->enum('type',['receive', 'expense']);
+            $table->enum('type', ['receive', 'expense']);
             $table->integer('parent_id')->nullable();
             $table->unsignedBigInteger('user_id');
 
