@@ -22,4 +22,4 @@ Route::resource('accounts', 'AccountController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('clients', 'ClientController');
-Route::resource('provider', 'providerController');
+Route::resource('providers', 'ProviderController');
