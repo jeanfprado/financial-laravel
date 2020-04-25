@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:web');
@@ -54,8 +53,8 @@ class CategoryController extends Controller
 
     public function destroy(Category $category)
     {
-       $category->delete();
+        $category->delete();
 
-       return redirect()->route('categories.index');
+        return redirect()->route('categories.index');
     }
 }
