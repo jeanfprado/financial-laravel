@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
-class client extends Person
+class Client extends Person
 {
     /**
      * The "booting" method of the model.
@@ -16,7 +17,11 @@ class client extends Person
         parent::boot();
 
         static::addGlobalScope('type', function (Builder $builder) {
-            $builder->where('type   ', 'client');
+            $builder->where('type', 'client');
+        });
+
+        static::creating(function (Model $model) {
+            $model->type = 'client';
         });
     }
 }
