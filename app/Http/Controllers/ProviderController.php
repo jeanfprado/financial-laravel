@@ -14,14 +14,14 @@ class ProviderController extends Controller
 
     public function index()
     {
-        $provider = Provider::all();
+        $providers = Provider::all();
 
-        return $provider;
+        return view('app.providers.index',compact('providers'));
     }
 
     public function create()
     {
-        //
+       return view('app.providers.create');
     }
 
     public function store(Request $request)

@@ -14,14 +14,14 @@ class ClientController extends Controller
 
     public function index()
     {
-        $client = Client::all();
+        $clients = Client::all();
 
-        return $client;
+        return view('app.clients.index',compact('clients'));
     }
 
     public function create()
     {
-        //
+        return view('app.clients.create');
     }
 
     public function store(Request $request)
@@ -35,7 +35,7 @@ class ClientController extends Controller
 
     public function edit(Client $client)
     {
-        return $client;
+        return view('app.clients.edit', compact('client'));
     }
 
     public function update(Request $request, Client $client)
