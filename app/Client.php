@@ -17,11 +17,11 @@ class Client extends Person
         parent::boot();
 
         static::addGlobalScope('type', function (Builder $builder) {
-            $builder->where('type', 'client');
+            $builder->where('type', static::TYPE_CLIENT);
         });
 
         static::creating(function (Model $model) {
-            $model->type = 'client';
+            $model->type = static::TYPE_CLIENT;
         });
     }
 }

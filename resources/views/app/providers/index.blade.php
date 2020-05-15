@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    fornecedor
+                    Fornecedor
                 <a class="btn btn-primary btn-sm" href="{{route('providers.create')}}" > Novo Fornecedor</a>
                 </div>
 

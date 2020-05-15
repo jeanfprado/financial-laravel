@@ -17,10 +17,10 @@ class Provider extends Person
         parent::boot();
 
         static::addGlobalScope('type', function (Builder $builder) {
-            $builder->where('type', 'provider');
+            $builder->where('type', static::TYPE_PROVIDER);
         });
         static::creating(function (Model $model) {
-            $model->type = 'provider';
+            $model->type = static::TYPE_PROVIDER;
         });
     }
 }
