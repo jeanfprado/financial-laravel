@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Extract extends Model
 {
-     use BelongsToUser;
+    use BelongsToUser;
 
     const TYPE_RECEIVE = 'receive';
     const TYPE_EXPENSE = 'expense';
 
+    protected $table = 'extracts';
 
     protected $fillable = [
         'account_id',
