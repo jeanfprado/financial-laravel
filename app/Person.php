@@ -9,6 +9,18 @@ class Person extends Model
 {
     use BelongsToUser;
 
+    /*
+    | Type of person
+    */
+    const TYPE_CLIENT = 'client';
+    const TYPE_PROVIDER = 'provider';
+
+    /*
+    | Person Type
+    */
+    const TYPE_PERSON = 'person';
+    const TYPE_COMPANY = 'company';
+
     protected $table = 'people';
 
     protected $fillable = [
