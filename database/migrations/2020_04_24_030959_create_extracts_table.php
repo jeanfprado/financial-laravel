@@ -16,9 +16,9 @@ class CreateExtractsTable extends Migration
         Schema::create('extracts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('dua_at');
-            $table->decimal('amount',8,2);
-            $table->boolean('settled')->default(0);
-            $table->date('settled_at')->nullable;
+            $table->decimal('amount', 8,2);
+            $table->boolean('settled')->default(false);
+            $table->date('settled_at')->nullable();
             $table->enum('type',['receive', 'expense']);
 
             $table->unsignedBigInteger('account_id');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\{Person, Account, Extract, Category};
 use Illuminate\Http\Request;
 
 class ExtractController extends Controller
