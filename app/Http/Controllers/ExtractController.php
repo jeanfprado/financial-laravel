@@ -13,12 +13,21 @@ class ExtractController extends Controller
         $this->middleware('auth:web');
     }
 
+<<<<<<< HEAD
     public function index()
     {
 
         $extracts = Extract::all();
+=======
+    public function index(){
+        
+        $extracts = Extract::all(); 
+        $accounts = Account::all(); 
+        $people = Person::all(); 
 
-        return 'View Index';
+>>>>>>> index-do-extrato
+
+        return view('app.extracts.index',compact('extracts','accounts','people'));
     }
 
     public function create()

@@ -40,6 +40,9 @@
                 <a class="navbar" href="{{{ route('providers.index') }}}">
                     Fornecedor
                 </a>
+                <a class="navbar" href="{{{ route('extracts.index') }}}">
+                    Extrato
+                </a>
 
                 @endauth
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
