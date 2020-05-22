@@ -14,7 +14,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                     <label>Pessoa</label>
-                    <select class="custom-select custom-select-lg mb-2" name="person">
+                    <select class="custom-select mb-2" name="person">
                         <option selected >selecione</option>
                         @foreach($people as $person)
                         <option value="{{$person->id}}">{{$person->name}}</option>
@@ -22,12 +22,12 @@
                     </select>
                     </div>
                     
-                    <div class="form-group col-md-2 btn-lg-1 ">
+                    <div class="form-group col-md-2  ">
                     <label >Data Inicio</label>
                     <input type="date" class="form-control" id="inputZip" name="date_init">
                     </div>
                     
-                    <div class="form-group col-md-2 btn-lg-1 ">
+                    <div class="form-group col-md-2  ">
                     <label >Data Fim</label>
                     <input type="date" class="form-control" id="inputZip" name="date_end"> 
                     </div>
