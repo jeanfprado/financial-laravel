@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Person;
-use App\Account;
-use App\AccountPay;
-use App\Category;
+use App\{Person, Account, Extract, Category, AccountPay};
 use Illuminate\Http\Request;
 
 class AccountPayController extends Controller

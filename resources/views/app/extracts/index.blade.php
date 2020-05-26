@@ -10,38 +10,33 @@
                 </div>
 
                 <div class="card-body">
-                <form action="">
+                {!! Form::open(['method'=>'GET']) !!}
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                    <label>Pessoa</label>
-                    <select class="custom-select mb-2" name="person">
-                        <option selected >selecione</option>
-                        @foreach($people as $person)
-                        <option value="{{$person->id}}">{{$person->name}}</option>
-                        @endforeach
-                    </select>
+                        {!! Form::label('person', 'Pessoas') !!}
+                        {!! Form::select('person', $people, null, ['class' => 'form-control', 'placeholder'=> 'Selecionar pessoa']) !!}
                     </div>
-                    
-                    <div class="form-group col-md-2  ">
-                    <label >Data Inicio</label>
-                    <input type="date" class="form-control" id="inputZip" name="date_init">
+
+                    <div class="form-group col-md-3">
+                        {!! Form::label('date_init', 'Data Inicial') !!}
+                        {!! Form::date('date_init', null, ['class' => 'form-control']) !!}
                     </div>
-                    
-                    <div class="form-group col-md-2  ">
-                    <label >Data Fim</label>
-                    <input type="date" class="form-control" id="inputZip" name="date_end"> 
+
+                    <div class="form-group col-md-3">
+                        {!! Form::label('date_end', 'Data Final') !!}
+                        {!! Form::date('date_end', null, ['class' => 'form-control']) !!}
                     </div>
 
                     <div  class="col-auto">
-                    <br>
-                    <input class="btn btn-primary btn-lg" type="submit" value="Submit">
+                    <br/>
+                   {!! Form::submit('Pesquisar', ['class' => 'btn btn-primary btn-lg']) !!}
                     </div>
-                    
+
                  </div>
-                    
-                </form>
-                  
-                    
+
+                {!! Form::close() !!}
+
+
 
                 </div>
             </div>
@@ -51,7 +46,7 @@
                 <div class="card-header">
                     Contas
                 </div>
-                
+
                 <div class="card-body">
                 <div class="btn-group">
                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,7 +55,7 @@
                     <div class="dropdown-menu dropdown-menu-center">
                         <a class="dropdown-item" type="button">Lançamento pagamento </a>
                         <a class="dropdown-item" type="button">Lançamento recebimento</a>
-                      
+
                     </div>
                     </div>
 
@@ -70,7 +65,7 @@
                         <a class="nav-link" href="">{{$account->title}}</a>
                     </li>
                     @endforeach
-                </ul> 
+                </ul>
 
                 </div>
             </div>
@@ -79,7 +74,7 @@
             <div class="card">
                 <div class="card-header">
                     Lançamentos
-             
+
                 </div>
 
                 <div class="card-body">
@@ -97,7 +92,7 @@
                         </thead>
                         <tbody>
                             @foreach($extracts as $extract)
-                            <tr> 
+                            <tr>
                              <td></td>
                              <td>{{$extract->settled_at}}</td>
                              <td>{{$extract->category->title}}</td>
@@ -109,7 +104,7 @@
 
                             @endforeach
 
-                          
+
                         </tbody>
                     </table>
 
