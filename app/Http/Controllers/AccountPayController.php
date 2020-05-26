@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\{Person, Account, AccountPay, Category};
+use App\Person;
+use App\Account;
+use App\AccountPay;
+use App\Category;
 use Illuminate\Http\Request;
 
 class AccountPayController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:web');
@@ -15,7 +17,6 @@ class AccountPayController extends Controller
 
     public function index()
     {
-
         $extracts = AccountPay::all();
 
         return 'View Index';
@@ -35,10 +36,10 @@ class AccountPayController extends Controller
         $data = $request->all();
         AccountPay::create($data);
 
-        return 'store';
+        return redirect()->back();
     }
 
-    public function edit(AccountPay $accountPay)
+    public function edit(AccountPay $accountpay)
     {
         $categories = Category::pluck('title', 'id');
         $people = Person::pluck('name', 'id');
@@ -47,10 +48,10 @@ class AccountPayController extends Controller
         return 'edit View';
     }
 
-    public function update(Request $request)
+    public function update(Request $request, AccountPay $accountpay)
     {
         $data = $request->all();
-
-        return 'update';
+        $accountpay->update($data);
+        return redirect()->back();
     }
 }
