@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
-class AccountRecieve extends Extract
+class AccountReceive extends Extract
 {
     /**
      * The "booting" method of the model.
@@ -17,11 +17,11 @@ class AccountRecieve extends Extract
         parent::boot();
 
         static::addGlobalScope('type', function (Builder $builder) {
-            $builder->where('type', static::TYPE_RECIEVE);
+            $builder->where('type', static::TYPE_RECEIVE);
         });
 
         static::creating(function (Model $model) {
-            $model->type = static::TYPE_RECIEVE;
+            $model->type = static::TYPE_RECEIVE;
         });
     }
 }

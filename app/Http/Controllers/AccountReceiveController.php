@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\{Person, Account, Extract, Category, AccountRecieve};
+use App\{Person, Account, Extract, Category, AccountReceive};
 
-class AccountRecieveController extends Controller
+class AccountReceiveController extends Controller
 {
     public function __construct()
     {
@@ -14,7 +14,7 @@ class AccountRecieveController extends Controller
 
     public function index(){
 
-        $extracts = AccountRecieve::all(); 
+        $extracts = AccountReceive::all();
 
         return 'View Index';
     }
@@ -31,12 +31,12 @@ class AccountRecieveController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        Recieve::create($data);
+        AccountReceive::create($data);
 
-        return 'store';
+        return redirect()->back();
     }
 
-    public function edit(AccountRecieve $recieve)
+    public function edit(AccountReceive $accountreceive)
     {
         $categories = Category::pluck('title', 'id');
         $people = Person::pluck('name', 'id');
@@ -45,18 +45,12 @@ class AccountRecieveController extends Controller
         return 'edit View';
     }
 
-    public function update(Request $request)
+    public function update(Request $request, AccountReceive $accountreceive)
     {
         $data = $request->all();
 
-        return 'update';
+        $accountreceive->update($data);
+
+        return redirect()->back();
     }
-
-    public function destroy( AccountRecieve $recieve )
-    {
-       $recieve->delete();
-
-       return 'destroy';
-    }
-
 }
