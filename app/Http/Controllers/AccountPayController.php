@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\{Person, Account, Extract, Category};
+use App\Person;
+use App\Account;
+use App\AccountPay;
+use App\Category;
 use Illuminate\Http\Request;
 
-class ExtractController extends Controller
+class AccountPayController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:web');
@@ -15,8 +17,7 @@ class ExtractController extends Controller
 
     public function index()
     {
-
-        $extracts = Extract::all();
+        $extracts = AccountPay::all();
 
         return 'View Index';
     }
@@ -33,12 +34,12 @@ class ExtractController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        Extract::create($data);
+        AccountPay::create($data);
 
-        return 'store';
+        return redirect()->back();
     }
 
-    public function edit(Extract $extract)
+    public function edit(AccountPay $accountpay)
     {
         $categories = Category::pluck('title', 'id');
         $people = Person::pluck('name', 'id');
@@ -47,18 +48,10 @@ class ExtractController extends Controller
         return 'edit View';
     }
 
-    public function update(Request $request, Extract $extract)
+    public function update(Request $request, AccountPay $accountpay)
     {
         $data = $request->all();
-        $extract->update($data);
-
-        return 'update';
-    }
-
-    public function destroy(Extract $extract)
-    {
-        $extract->delete();
-
-        return 'destroy';
+        $accountpay->update($data);
+        return redirect()->back();
     }
 }
