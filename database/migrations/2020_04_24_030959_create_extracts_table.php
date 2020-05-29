@@ -15,7 +15,7 @@ class CreateExtractsTable extends Migration
     {
         Schema::create('extracts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('dua_at');
+            $table->date('due_at');
             $table->decimal('amount', 8,2);
             $table->boolean('settled')->default(false);
             $table->date('settled_at')->nullable();
@@ -25,7 +25,7 @@ class CreateExtractsTable extends Migration
             $table->unsignedBigInteger('person_id');
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('user_id');
-                        
+
             $table->foreign('account_id')->references('id')->on('accounts');
             $table->foreign('person_id')->references('id')->on('people');
             $table->foreign('category_id')->references('id')->on('categories');

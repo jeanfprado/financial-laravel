@@ -43,6 +43,13 @@
                 <a class="navbar" href="{{{ route('extracts.index') }}}">
                     Extrato
                 </a>
+                <a class="navbar" href="{{{ route('accountpays.index') }}}">
+                    Contas a Pagar
+                </a>
+
+                <a class="navbar" href="{{{ route('accountreceives.index') }}}">
+                    Contas a Receber
+                </a>
 
                 @endauth
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

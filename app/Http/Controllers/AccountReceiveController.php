@@ -12,20 +12,20 @@ class AccountReceiveController extends Controller
         $this->middleware( 'auth:web' );
     }
 
-    public function index(){
+    public function index()
+    {
+        $accountReceives = AccountReceive::all();
 
-        $extracts = AccountReceive::all();
-
-        return 'View Index';
+        return view('app.accountsreceives.index', compact('accountReceives'));
     }
 
     public function create()
     {
-        $categories = Category::pluck('title', 'id');
+        $categories = Category::receive()->pluck('title', 'id');
         $people = Person::pluck('name', 'id');
         $accounts = Account::pluck('title', 'id');
 
-        return 'View create';
+        return view('app.accountsreceives.create', compact('categories', 'people', 'accounts'));
     }
 
     public function store(Request $request)
@@ -36,21 +36,19 @@ class AccountReceiveController extends Controller
         return redirect()->back();
     }
 
-    public function edit(AccountReceive $accountreceive)
+    public function edit(AccountReceive $accountreceife)
     {
         $categories = Category::pluck('title', 'id');
         $people = Person::pluck('name', 'id');
         $accounts = Account::pluck('title', 'id');
 
-        return 'edit View';
+        return view('app.accountsreceives.edit', compact('categories', 'people', 'accounts', 'accountreceife'));
     }
 
-    public function update(Request $request, AccountReceive $accountreceive)
+    public function update(Request $request, AccountReceive $accountreceife)
     {
         $data = $request->all();
-
-        $accountreceive->update($data);
-
+        $accountreceife->update($data);
         return redirect()->back();
     }
 }

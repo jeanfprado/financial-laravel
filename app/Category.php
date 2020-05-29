@@ -24,4 +24,14 @@ class Category extends Model
     {
         return $this->hasMany(Category::class, 'parent_id', 'id');
     }
+
+    public function scopeExpense($query)
+    {
+        return $query->where($this->qualifyColumn('type'), static::TYPE_EXPENSE);
+    }
+
+    public function scopeReceive($query)
+    {
+        return $query->where($this->qualifyColumn('type'), static::TYPE_RECEIVE);
+    }
 }

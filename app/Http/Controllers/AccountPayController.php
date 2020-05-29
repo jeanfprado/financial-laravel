@@ -14,18 +14,18 @@ class AccountPayController extends Controller
 
     public function index()
     {
-        $extracts = AccountPay::all();
+        $accountPays = AccountPay::all();
 
-        return 'View Index';
+        return view('app.accountspays.index', compact('accountPays'));
     }
 
     public function create()
     {
-        $categories = Category::pluck('title', 'id');
+        $categories = Category::expense()->pluck('title', 'id');
         $people = Person::pluck('name', 'id');
         $accounts = Account::pluck('title', 'id');
 
-        return 'View create';
+        return view('app.accountspays.create', compact('categories', 'people', 'accounts'));
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class AccountPayController extends Controller
         $people = Person::pluck('name', 'id');
         $accounts = Account::pluck('title', 'id');
 
-        return 'edit View';
+        return view('app.accountspays.edit', compact('categories', 'people', 'accounts', 'accountpay'));
     }
 
     public function update(Request $request, AccountPay $accountpay)
