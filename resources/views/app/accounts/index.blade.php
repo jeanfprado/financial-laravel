@@ -23,7 +23,7 @@
                         <tbody>
                            @foreach($accounts as $account)
                             <tr>
-                                <th>
+                                <td>
                                     <a class="btn btn-primary btn-sm" href="{{route('accounts.edit', ['account' => $account->id])}}" >Editar</a>
                                     <a class="btn btn-danger btn-sm" href="" onclick="event.preventDefault();
                                             document.getElementById('destroy-form').submit();">Excluir</a>
@@ -31,11 +31,11 @@
                                                 @method('delete')
                                                 @csrf
                                             </form>
-                                </th>
-                                <th>{{$account->id}} </th>
-                                <th>{{$account->title}}</th>
-                                <th>{{ __($account->type) }}</th>
-                            </tr>                               
+                                </td>
+                                <td>{{$account->id}} </td>
+                                <td>{{$account->title}}</td>
+                                <td>{{ __($account->type) }}</td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>

@@ -2,12 +2,18 @@
 
 namespace App;
 
-use App\Eloquent\Concerns\BelongsToUser;
 use Illuminate\Database\Eloquent\Model;
+use App\Eloquent\Concerns\BelongsToUser;
+use App\Eloquent\Concerns\BelongsToPeople;
+use App\Eloquent\Concerns\BelongsToAccount;
+use App\Eloquent\Concerns\BelongsToCategory;
 
 class Extract extends Model
 {
-    use BelongsToUser;
+    use BelongsToUser,
+        BelongsToPeople,
+        BelongsToAccount,
+        BelongsToCategory;
 
     const TYPE_RECEIVE = 'receive';
     const TYPE_EXPENSE = 'expense';
@@ -17,7 +23,7 @@ class Extract extends Model
     protected $fillable = [
         'account_id',
         'person_id',
-        'dua_id',
+        'due_at',
         'amount',
         'category_id',
         'type',
@@ -25,4 +31,9 @@ class Extract extends Model
         'settled_at',
         'user_id'
     ];
+
+    public function isRecipe()
+    {
+        return $this->type === static::TYPE_RECEIVE;
+    }
 }

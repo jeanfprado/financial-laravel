@@ -9,9 +9,9 @@
 
                 <div class="card-body">
 
-                {!! Form::open() !!}
+                {!! Form::model($accountpay,['url' => route('accountpays.update',['accountpay' => $accountpay->id]), 'method' => 'PUT']) !!}
 
-                @include('app.accountspay._form')
+                @include('app.accountspays._form')
 
                 {!! Form::submit('Salvar', ['class' => 'btn btn-success']) !!}
 

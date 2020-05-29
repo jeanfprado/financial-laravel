@@ -9,9 +9,9 @@
 
                 <div class="card-body">
 
-                {!! Form::open() !!}
+                {!! Form::open(['url' => route('accountreceives.store')]) !!}
 
-                @include('app.accountsrecieve._form')
+                @include('app.accountsreceives._form')
 
                 {!! Form::submit('Salvar', ['class' => 'btn btn-success']) !!}
 

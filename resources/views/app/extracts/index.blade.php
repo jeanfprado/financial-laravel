@@ -98,7 +98,7 @@
                              <td>{{$extract->category->title}}</td>
                              <td>{{$extract->person->name}}</td>
                              <!--<td></td>-->
-                             <td>{{$extract->amount}}</td>
+                             <td >{{$extract->amount}}</td>
                             </tr>
 
 

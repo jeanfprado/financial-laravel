@@ -3,7 +3,7 @@
 namespace App\Eloquent\Concerns;
 
 
-use App\Models\User;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
