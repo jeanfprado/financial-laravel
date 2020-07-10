@@ -1,19 +1,24 @@
-@extends('layouts.app')
+@extends('layouts.page')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-12">
-            <div class="card">
-            <div class="card-header">Editar Cliente </div>
+<div class="section__content section__content--p30">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>Editando Cliente</strong>
+                    </div>
+                    <div class="card-body card-block">
+                        {!! Form::model($client, ['url' => route('clients.update', ['client' => $client->id]), 'method' =>'put']) !!}
 
-                <div class="card-body">
-                {!! Form::model($client, ['url' => route('clients.update', ['client' => $client->id]), 'method' =>'put']) !!}
-                @include('app.clients._form')
+                        @include('app.clients._form')
 
-                {!! Form::submit('Atualizar', ['class' =>'btn btn-primary']) !!}
+                        {!! Form::submit('Salvar', ['class' => 'btn btn-success']) !!}
 
-                {!! Form::close() !!}
+                        {!! Form::close() !!}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

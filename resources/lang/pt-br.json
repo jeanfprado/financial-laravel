@@ -1,5 +1,7 @@
 {
     "credit_card": "Cartão de Crédito",
     "wallet": "Carteira",
-    "bank": "Banco"
+    "bank": "Banco",
+    "expense": "Despesa",
+    "receive": "Receitas"
 }
