@@ -22,15 +22,15 @@
                     <ul class="navbar-mobile__list list-unstyled">
                         <li>
                             <a href="{{{ route('clients.index') }}}">
-                                <i class="fas fa-chart-bar"></i>Clientes</a>
+                                <i class="fas fa-users"></i>Clientes</a>
                         </li>
                         <li>
                         <a href="{{{ route('providers.index') }}}">
-                                <i class="fas fa-table"></i>Fornecedores</a>
+                                <i class="fas fa-users"></i>Fornecedores</a>
                         </li>
                         <li>
                         <a href="{{{ route('extracts.index') }}}">
-                                <i class="fas fa-table"></i>Extratos</a>
+                                <i class="fas fa-chart-bar"></i>Extratos</a>
                         </li>
                         <li>
                         <a href="{{{ route('categories.index') }}}">
