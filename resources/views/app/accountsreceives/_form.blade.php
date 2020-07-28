@@ -27,4 +27,8 @@
     {!! Form::label('settled_at', 'Data do recebimento: ') !!}
     {!! Form::date('settled_at', null, ['class' => 'form-control']) !!}
 </div>
+@section('js')
 
+<script src="{{asset('js/settled.js')}}"></script>
+    
+@endsection
